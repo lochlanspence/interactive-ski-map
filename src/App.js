@@ -12,6 +12,7 @@ function App() {
             <li><a href="#"><img src={primary_logo_white} alt="Primary White Logo" class="primary_logo_white"></img></a></li>
             <li><a href="#" class="nav_item">Our Mountain</a></li>
             <li><a href="#" class="nav_item">Our Staff</a></li>
+            <li><a href="#" class="nav_item">Contact Us</a></li>
             <li><a href="#" class="primary_button">View Map</a></li>
           </ul>
         </nav>
@@ -19,6 +20,10 @@ function App() {
           <h1>The Remarkables</h1>
           <p>Queenstown's Adventure Playground</p>
         </div>
+      </div>
+      <div class="mountain_features">
+          <h2>Our Mountain Features</h2>
+          <p>Placholder text about mountain features</p>
       </div>
     </div>
   );

@@ -9,6 +9,10 @@
   text-transform: uppercase;
 }
 
+h2 {
+  font-size: 2rem;
+}
+
 nav ul {
   align-items: center;
   list-style: none;
@@ -23,13 +27,37 @@ nav ul {
 }
 
 nav li {
-  max-width: 25%;
+  max-width: 20%;
 }
 
 .nav_item {
   color: white;
   text-decoration: none;
-  padding: 20px;
+  padding: 10px;
+  padding-bottom: 6px;
+  position: relative;
+}
+
+.nav_item:hover {
+  transition: 0.5s;
+}
+
+.nav_item::before {
+  content: "";
+  position: absolute;
+  width:100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #FFF;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.nav_item:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
 }
 
 .primary_button {
@@ -42,11 +70,6 @@ nav li {
 
 .primary_button:hover {
   background-color: #4FD369;
-  transition: 0.5s;
-}
-
-.nav_item:hover {
-  background-color: #43B12E;
   transition: 0.5s;
 }
 
@@ -77,8 +100,27 @@ nav li {
   font-size: 3rem;
   color: #FFF;
   margin-bottom: 20px;
+  animation: fadeIn 2.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .landing p {
   margin-left: 15px;
+  animation: fadeIn 3.7s;
+}
+
+.mountain_features {
+  width: 100%;
+  height: auto;
+  margin-top: 105px;
+  margin-left: 20px;
+  margin-right: 20px;
 }

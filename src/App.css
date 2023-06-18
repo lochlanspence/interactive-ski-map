@@ -134,6 +134,7 @@ nav li {
   position: relative;
   margin: 0 225px;
   margin-top: 150px;
+  height: auto;
 }
 
 .mountain_features h2 {
@@ -159,4 +160,47 @@ nav li {
 .mountain_features a {
   color: #43B12E;
   text-decoration: none;
+}
+
+.features_grid {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 150px;
+  margin-bottom: 20px;
+}
+
+.features_grid div {
+  width: 30%;
+  height: auto;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.features_grid img{
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+.features_grid h3 {
+  margin-bottom: 20px;
+}
+
+.features_grid p {
+  margin-top: 10px;
+}
+
+.footer {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: lightgray 1px solid;
+}
+
+.footer p {
+  text-transform: none;
 }

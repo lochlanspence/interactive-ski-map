@@ -18,6 +18,17 @@ h2 {
   letter-spacing: 0.01em;
 }
 
+h4 {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-family: "Gotham Cond SSm A","Gotham Cond SSm B",sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8em;
+}
+
 nav ul {
   align-items: center;
   list-style: none;
@@ -120,6 +131,7 @@ nav li {
 .landing p {
   margin-left: 15px;
   animation: fadeIn 3.7s;
+  color: #FFF;
 }
 
 .sub-div {
@@ -148,13 +160,18 @@ nav li {
   height: auto;
 }
 
-.mountain_features div.text {
+.mountain_features div.our_features {
   position: relative;
   z-index: 1;
   padding: 44px 69px;
   background-color: white;
   margin: 100px;
   margin-top: -70px;
+}
+
+.mountain_features div.our_features h3 {
+  margin-bottom: 40px;
+  font-size: 1.3rem;
 }
 
 .mountain_features a {
@@ -176,6 +193,11 @@ nav li {
   height: auto;
   margin-bottom: 25px;
   text-align: center;
+  margin-right: 20px;
+}
+
+.features_grid div:last-child {
+  margin-right: 0;
 }
 
 .features_grid img{
@@ -184,12 +206,14 @@ nav li {
   max-height: 200px;
 }
 
-.features_grid h3 {
+.features_grid h4 {
   margin-bottom: 20px;
 }
 
 .features_grid p {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .footer {

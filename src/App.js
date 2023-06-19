@@ -31,31 +31,31 @@ function App() {
           <div>
           <img src={ice_bar} alt='Ice Bar'></img>
           </div>
-          <div className='text'>
-            <p>Placholder text about mountain features</p>
+          <div className='our_features'>
+            <h3>Discover the exceptional features that make The Remarkables mountain a must-visit destination:</h3>
             <a href='#'>Learn More</a>
           </div>
       </div>
       <div className='features_grid'>
           <div className='stash'>
-            <h3>The Stash</h3>
+            <h4>The Stash</h4>
             <img src={stash} alt='Stash'></img>
-            <p>Placeholder Text</p>
+            <p>The Stash, a dedicated freestyle terrain park, perfect for snowboarders and freeskiers looking to push their limits.</p>
           </div>
           <div className='icebar'>
-            <h3>Ice Bar</h3>
+            <h4>Ice Bar</h4>
             <img src={ice_bar_closeup} alt='Ice Bar'></img>
-            <p>Placeholder Text</p>
+            <p>State-of-the-art Ice Bar offering refreshing beverages in a unique alpine setting.</p>
           </div>
           <div className='sightseeing'>
-            <h3>Sightseeing</h3>
+            <h4>Sightseeing</h4>
             <img src={sightseeing} alt='sightseeing'></img>
-            <p>Placeholder Text</p>
+            <p>Stunning panoramic views of the surrounding mountains and Queenstown's picturesque landscapes.</p>
           </div>
           <div className='tubing'>
-            <h3>Tubing</h3>
+            <h4>Tubing</h4>
             <img src={tubing} alt='tubing'></img>
-            <p>Placeholder Text</p>
+            <p>Exciting tubing slope for thrilling snow tubing adventures with friends and family.</p>
           </div>
       </div>
       <div className='footer'>

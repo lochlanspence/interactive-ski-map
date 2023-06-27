@@ -26,6 +26,14 @@ nav ul {
     padding-bottom: 6px;
     position: relative;
   }
+
+  .black_text {
+    color: black;
+  }
+
+  div.Our_mountain .nav_item {
+    color: black;
+  }
   
   .nav_item:hover {
     transition: 0.5s;

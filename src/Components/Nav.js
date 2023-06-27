@@ -1,34 +1,34 @@
-import React from 'react'
-import '../Nav.css';
-import primary_logo_white from '../images/NZSki_RM_Logo_01_Primary_White.png'
-import { Link, Route, Routes } from "react-router-dom"
+import React from 'react';
+import styles from '../Nav.module.css';
+import { Link, useLocation } from 'react-router-dom';
 
-function Nav() {
+function Nav({ logo }) {
+  const location = useLocation();
+  const isOurMountainPage = location.pathname === '/Our_mountain';
+
   return (
     <div>
-        <nav>
-        <ul className='navbar'>
-            <Link to="/" className='nav_item_first_child'>
-                <img src={primary_logo_white} className='primary_logo_white'></img>
-            </Link>
-            <Link to="/Our_mountain" class="nav_item">
-                Our Mountain
-            </Link>
-            <Link to="/" class="nav_item">
-                Our Staff
-            </Link>
-            <Link to="/" class="nav_item">
-                Contact Us
-            </Link>
-            <Link to="/" class="primary_button">
-                View Map
-            </Link>
+      <nav>
+        <ul className={styles.navbar}>
+          <Link to="/" className={styles.nav_item_first_child}>
+            <img src={logo} className={styles.primary_logo_white} alt="Primary Logo" />
+          </Link>
+          <Link to="/Our_mountain" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text : ''}`}>
+            Our Mountain
+          </Link>
+          <Link to="/" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text : ''}`}>
+            Our Staff
+          </Link>
+          <Link to="/" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text : ''}`}>
+            Contact Us
+          </Link>
+          <Link to="/" className={styles.primary_button}>
+            View Map
+          </Link>
         </ul>
       </nav>
-      
     </div>
-    )
+  );
 }
-    
 
-export default Nav
+export default Nav;

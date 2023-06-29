@@ -13,13 +13,13 @@ function Nav({ logo }) {
           <Link to="/" className={styles.nav_item_first_child}>
             <img src={logo} className={styles.primary_logo_white} alt="Primary Logo" />
           </Link>
-          <Link to="/Our_mountain" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text : ''}`}>
+          <Link to="/Our_mountain" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text  : ''} ${isOurMountainPage ? styles.black_hover  : ''}`}>
             Our Mountain
           </Link>
-          <Link to="/" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text : ''}`}>
+          <Link to="/" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text : ''} ${isOurMountainPage ? styles.black_hover  : ''}`}>
             Our Staff
           </Link>
-          <Link to="/" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text : ''}`}>
+          <Link to="/" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text : ''} ${isOurMountainPage ? styles.black_hover  : ''}`}>
             Contact Us
           </Link>
           <Link to="/" className={styles.primary_button}>

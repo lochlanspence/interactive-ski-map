@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 function Nav({ logo }) {
   const location = useLocation();
-  const isOurMountainPage = location.pathname === '/Our_mountain';
+  const isNotHomePage = location.pathname !== '/';
 
   return (
     <div>
@@ -13,16 +13,16 @@ function Nav({ logo }) {
           <Link to="/" className={styles.nav_item_first_child}>
             <img src={logo} className={styles.primary_logo_white} alt="Primary Logo" />
           </Link>
-          <Link to="/Our_mountain" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text  : ''} ${isOurMountainPage ? styles.black_hover  : ''}`}>
+          <Link to="/Our_mountain" className={`${styles.nav_item} ${isNotHomePage ? styles.black_text  : ''} ${isNotHomePage ? styles.black_hover  : ''}`}>
             Our Mountain
           </Link>
-          <Link to="/" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text : ''} ${isOurMountainPage ? styles.black_hover  : ''}`}>
+          <Link to="/" className={`${styles.nav_item} ${isNotHomePage ? styles.black_text : ''} ${isNotHomePage ? styles.black_hover  : ''}`}>
             Our Staff
           </Link>
-          <Link to="/" className={`${styles.nav_item} ${isOurMountainPage ? styles.black_text : ''} ${isOurMountainPage ? styles.black_hover  : ''}`}>
+          <Link to="/" className={`${styles.nav_item} ${isNotHomePage ? styles.black_text : ''} ${isNotHomePage ? styles.black_hover  : ''}`}>
             Contact Us
           </Link>
-          <Link to="/" className={styles.primary_button}>
+          <Link to="/Map" className={styles.primary_button}>
             View Map
           </Link>
         </ul>

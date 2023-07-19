@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Navbar from '../Components/Nav.js';
 import styles from '../Map.module.css';
 import primary_logo_black from '../images/Remarkables-BlackOut.png';

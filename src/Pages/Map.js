@@ -2,7 +2,7 @@ import Navbar from '../Components/Nav.js';
 import styles from '../Map.module.css';
 import primary_logo_black from '../images/Remarkables-BlackOut.png';
 import TrailMap from '../images/Remarkables_Trail_Map.png';
-import {useRef, useState, useLayoutEffect} from 'react';
+import {useRef, useState, useLayoutEffect, useCallback, useEffect} from 'react';
 import Tile from '../Components/Tile.js';
 
 function Map() {
@@ -19,14 +19,28 @@ function Map() {
   // X/Y values to scale the tile positions based on the map size. 
   const scaleX = useRef(1.0);
   const scaleY = useRef(1.0);
+  const [, setWindowSize] = useState(0);
 
-  useLayoutEffect(() => {
+  const setScale = useCallback(() => {
     const map = mapRef.current;
     const rect = map.getBoundingClientRect();
 
     scaleX.current = MapWidth / rect.width;
     scaleY.current = MapHeight / rect.height;
   }, [scaleX, scaleY]);
+
+  const handleWindowResize = useCallback(() => {
+    setScale();
+    window.addEventListener(window.innerWidth);
+  }, [setScale]);
+
+  useEffect(() => {
+    setScale();
+    window.addEventListener('resize', handleWindowResize);
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    }
+  }, [setScale, handleWindowResize]);
 
   const getUniqueId = () => {
     return parseInt(Date.now())

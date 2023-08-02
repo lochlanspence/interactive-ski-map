@@ -1,14 +1,18 @@
+// Map.js
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import Navbar from '../Components/Nav.js';
 import styles from '../Map.module.css';
 import primary_logo_black from '../images/Remarkables-BlackOut.png';
 import TrailMap from '../images/Remarkables_Trail_Map.png';
-import { useRef, useState, useLayoutEffect, useCallback, useEffect } from 'react';
 import Tile from '../Components/Tile.js';
+import Modal from '../Components/Modal.js';
 
 function Map() {
   // Dimensions of the map image used for calculating the scale for positioning tiles
-  const MapWidth = 2048;
-  const MapHeight = 1259;
+  const MapImage = {
+    width: 2048,
+    height: 1259
+  };
 
   // reference to the HTML element that contains the map image
   const mapRef = useRef(null);
@@ -16,7 +20,7 @@ function Map() {
   // state management for the list of tiles to overlay on the map image
   const [tiles, setTiles] = useState([]);
 
-  // X/Y values to scale the tile positions based on the map size. 
+  // X/Y values to scale the tile positions based on the map size.
   const scaleX = useRef(1.0);
   const scaleY = useRef(1.0);
 
@@ -33,9 +37,9 @@ function Map() {
     const map = mapRef.current;
     const rect = map.getBoundingClientRect();
 
-    scaleX.current = MapWidth / rect.width;
-    scaleY.current = MapHeight / rect.height;
-  }, [MapWidth, MapHeight]);
+    scaleX.current = MapImage.width / rect.width;
+    scaleY.current = MapImage.height / rect.height;
+  }, [scaleX, scaleY, MapImage.width, MapImage.height]);
 
   // Function to handle window resize
   const handleWindowResize = useCallback(() => {
@@ -46,7 +50,7 @@ function Map() {
     setScale();
     window.addEventListener('resize', handleWindowResize);
     window.addEventListener('focus', handleWindowFocusChange); // Listen for window focus change
-    window.addEventListener('blur', handleWindowFocusChange);  // Listen for window blur change
+    window.addEventListener('blur', handleWindowFocusChange); // Listen for window blur change
     return () => {
       window.removeEventListener('resize', handleWindowResize);
       window.removeEventListener('focus', handleWindowFocusChange);
@@ -55,7 +59,15 @@ function Map() {
   }, [setScale, handleWindowResize, handleWindowFocusChange]);
 
   const getUniqueId = () => {
-    return parseInt(Date.now())
+    return parseInt(Date.now());
+  };
+
+  // Modal state and close function
+  const [showModal, setShowModal] = useState(false);
+  const [clickedTile, setClickedTile] = useState(null);
+
+  function closeModal() {
+    setShowModal(false);
   }
 
   function handleMapClick(e) {
@@ -80,6 +92,10 @@ function Map() {
 
     const newTiles = [...tiles, tile];
     setTiles(newTiles);
+
+    // Show the modal when a tile is clicked and store the clicked tile data
+    setShowModal(true);
+    setClickedTile(tile);
   }
 
   return (
@@ -91,13 +107,13 @@ function Map() {
             // calculate the x/y values based on the current scale of the map image
             const x = Math.round(t.x / scaleX.current);
             const y = Math.round(t.y / scaleY.current);
-            return (
-              <Tile key={t.id} tile={t} x={x} y={y} />
-            )
+            return <Tile key={t.id} tile={t} x={x} y={y} />;
           })}
           <img src={TrailMap} alt="Trail Map" width="100%" />
         </div>
       </div>
+      {/* Render the modal conditionally with the clickedTile */}
+      {showModal && clickedTile && <Modal tile={clickedTile} onClose={closeModal} />}
     </div>
   );
 }

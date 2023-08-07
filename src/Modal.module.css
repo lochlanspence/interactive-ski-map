@@ -16,4 +16,24 @@
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
+
+.button_container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button_container p {
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.delete_button {
+    background-color: rgb(225, 0, 0);
+}
+
+.place_button {
+    background-color: #43B12E;
+}
   

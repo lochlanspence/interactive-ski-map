@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../Modal.module.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faCoffee, faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Modal({ onClose, tile }) {
   const [newLogo, setNewLogo] = useState(''); // State for the new logo
@@ -10,16 +12,8 @@ function Modal({ onClose, tile }) {
     onClose(); // Call the onClose function to close the modal window
   };
 
-  const handleLogoChange = (event) => {
-    setNewLogo(event.target.value); // Update the newLogo state with the new value
-  };
-
-  const handleSubHeadingChange = (event) => {
-    setNewSubHeading(event.target.value); // Update the newSubHeading state with the new value
-  };
-
-  const handleDescriptionChange = (event) => {
-    setNewDescription(event.target.value); // Update the newDescription state with the new value
+  const handleLogoClick = (logo) => {
+    setNewLogo(logo); // Update the newLogo state with the selected logo
   };
 
   return (
@@ -29,24 +23,36 @@ function Modal({ onClose, tile }) {
         <h2>Create </h2>
         <div className={styles.content_container}>
           {/* Logo Change */}
-          <div className={styles['input_container', 'change_logo']}>
+          <div className={`${styles['input_container']} ${styles['change_logo']}`}>
             <label>Change Logo:</label>
-            <select value={newLogo} onChange={handleLogoChange}>
-              <option value="">Select Logo</option>
-              <option value="logo1.svg">Logo 1</option>
-              <option value="logo2.svg">Logo 2</option>
-              <option value="logo3.svg">Logo 3</option>
-              {/* Add more options for additional SVG files */}
-            </select>
+            <div className={styles.logo_grid}>
+              <FontAwesomeIcon
+                icon={faClock}
+                onClick={() => handleLogoClick(faClock)}
+                className={newLogo === faClock ? styles.selected_logo : ''}
+              />
+
+              <FontAwesomeIcon
+                icon={faCoffee}
+                onClick={() => handleLogoClick(faCoffee)}
+                className={newLogo === faCoffee ? styles.selected_logo : ''}
+              />
+
+              <FontAwesomeIcon
+                icon={faStar}
+                onClick={() => handleLogoClick(faStar)}
+                className={newLogo === faStar ? styles.selected_logo : ''}
+              />
+            </div>
           </div>
           <div>
             <div className={styles.input_container}>
               <label>Sub-heading:</label>
-              <input type="text" value={newSubHeading} onChange={handleSubHeadingChange} />
+              <input type="text" value={newSubHeading} onChange={(event) => setNewSubHeading(event.target.value)} />
             </div>
             <div className={styles.input_container}>
               <label>Description:</label>
-              <textarea value={newDescription} onChange={handleDescriptionChange} />
+              <textarea value={newDescription} onChange={(event) => setNewDescription(event.target.value)} />
             </div>
           </div>
         </div>

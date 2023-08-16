@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import styles from '../Modal.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faCoffee, faStar } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faClock,
+  faCoffee,
+  faStar,
+  faCircleXmark,
+  faExclamation,
+  faUserSlash
+} from "@fortawesome/free-solid-svg-icons";
 
 function Modal({ onClose, tile }) {
   const [newLogo, setNewLogo] = useState(''); // State for the new logo
@@ -20,7 +27,7 @@ function Modal({ onClose, tile }) {
     <div className={styles.modal}>
       <div className={styles['modal-content']}>
         {/* Use the tile data to display specific information */}
-        <h2>Create </h2>
+        <h2>Create Widget </h2>
         <div className={styles.content_container}>
           {/* Logo Change */}
           <div className={`${styles['input_container']} ${styles['change_logo']}`}>
@@ -42,6 +49,24 @@ function Modal({ onClose, tile }) {
                 icon={faStar}
                 onClick={() => handleLogoClick(faStar)}
                 className={newLogo === faStar ? styles.selected_logo : ''}
+              />
+
+              <FontAwesomeIcon
+                icon={faCircleXmark}
+                onClick={() => handleLogoClick(faCircleXmark)}
+                className={newLogo === faCircleXmark ? styles.selected_logo : ''}
+              />
+
+              <FontAwesomeIcon
+                icon={faExclamation}
+                onClick={() => handleLogoClick(faExclamation)}
+                className={newLogo === faExclamation ? styles.selected_logo : ''}
+              />
+
+              <FontAwesomeIcon
+                icon={faUserSlash}
+                onClick={() => handleLogoClick(faUserSlash)}
+                className={newLogo === faUserSlash ? styles.selected_logo : ''}
               />
             </div>
           </div>

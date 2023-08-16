@@ -24,11 +24,20 @@
 
 .content_container {
     display: flex;
+    justify-content: space-between; /* Align items to the start and end */
+}
+
+.input_container {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.content_container label {
+    margin-bottom: 20px;
 }
 
 input {
     width: 100%;
-    margin-bottom: 20px;
 }
 
 textarea {
@@ -54,6 +63,10 @@ textarea {
     background-color: rgb(225, 0, 0);
 }
 
+.delete_button:hover {
+    background-color: #990000;
+}
+
 .place_button {
     background-color: #43B12E;
 }
@@ -62,21 +75,22 @@ textarea {
 .logo_grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-gap: 20px;
+    margin-top: 20px;
 }
 
 .logo_grid img {
-    width: 100px;
-    height: 100px;
+    width: 250px;
+    height: 250px;
     cursor: pointer;
     border: 2px solid transparent;
     transition: border-color 0.3s ease-in-out;
 }
 
 .logo_grid img:hover {
-    border-color: #43B12E; /* Highlight border color on hover */
+    border-color: #43B12E;
 }
 
 .selected_logo {
-    border-color: #43B12E; /* Highlight border color for the selected logo */
+    border-color: #43B12E;
 }

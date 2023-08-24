@@ -65,6 +65,7 @@ textarea {
 
 .delete_button:hover {
     background-color: #990000;
+    cursor: grab;
 }
 
 .place_button {
@@ -93,4 +94,8 @@ textarea {
 
 .selected_logo {
     border-color: #43B12E;
+}
+
+.input_container{
+    text-align: center;
 }

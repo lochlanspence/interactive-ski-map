@@ -99,3 +99,27 @@ textarea {
 .input_container{
     text-align: center;
 }
+
+.logo_icon {
+    width:100px;
+    height: 100px;
+    cursor: pointer;
+    box-sizing: border-box;
+    filter: grayscale(0%); /* Initially all logos are black */
+    opacity: 1;
+}
+  
+.logo_icon:hover {
+    border-color: transparent;
+}
+
+.selected_logo {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+}
+  
+.logo_grid:not(.selected_logo) .logo_icon {
+    filter: grayscale(100%); /* Apply grayscale to unselected logos */
+    opacity: 0.6;
+}

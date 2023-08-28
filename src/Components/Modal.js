@@ -42,37 +42,37 @@ function Modal({ onClose, tile }) {
               <FontAwesomeIcon
                 icon={faClock}
                 onClick={() => handleLogoClick(faClock)}
-                className={newLogo === faClock ? styles.selected_logo : ''}
+                className={newLogo === faClock ? styles.selected_logo : styles.logo_icon}
               />
 
               <FontAwesomeIcon
                 icon={faCoffee}
                 onClick={() => handleLogoClick(faCoffee)}
-                className={newLogo === faCoffee ? styles.selected_logo : ''}
+                className={newLogo === faCoffee ? styles.selected_logo : styles.logo_icon}
               />
 
               <FontAwesomeIcon
                 icon={faStar}
                 onClick={() => handleLogoClick(faStar)}
-                className={newLogo === faStar ? styles.selected_logo : ''}
+                className={newLogo === faStar ? styles.selected_logo : styles.logo_icon}
               />
 
               <FontAwesomeIcon
                 icon={faCircleXmark}
                 onClick={() => handleLogoClick(faCircleXmark)}
-                className={newLogo === faCircleXmark ? styles.selected_logo : ''}
+                className={newLogo === faCircleXmark ? styles.selected_logo : styles.logo_icon}
               />
 
               <FontAwesomeIcon
                 icon={faExclamation}
                 onClick={() => handleLogoClick(faExclamation)}
-                className={newLogo === faExclamation ? styles.selected_logo : ''}
+                className={newLogo === faExclamation ? styles.selected_logo : styles.logo_icon}
               />
 
               <FontAwesomeIcon
                 icon={faUserSlash}
                 onClick={() => handleLogoClick(faUserSlash)}
-                className={newLogo === faUserSlash ? styles.selected_logo : ''}
+                className={newLogo === faUserSlash ? styles.selected_logo : styles.logo_icon}
               />
             </div>
           </div>

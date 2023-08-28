@@ -25,7 +25,6 @@ function Home() {
         </div>
         <div className={styles.our_features}>
           <h3>Discover the exceptional features that make The Remarkables mountain a must-visit destination:</h3>
-          <a href='#'>Learn More</a>
         </div>
       </div>
       <div className={styles.features_grid}>

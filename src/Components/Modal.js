@@ -23,8 +23,14 @@ function Modal({ onClose, tile }) {
     setNewLogo(logo); // Update the newLogo state with the selected logo
   };
 
+  const handleOverlayClick = (event) => {
+    if (event.target === event.currentTarget) {
+      onClose(); // Call the onClose function to close the modal window
+    }
+  }
+
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} onClick={handleOverlayClick}>
       <div className={styles['modal-content']}>
         {/* Use the tile data to display specific information */}
         <h2>Create Widget </h2>

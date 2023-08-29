@@ -4,13 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Tile({ tile, x, y }) {
   return (
-    <div className='tile' style={{ left: '${x}px', top:'${y}px' }}>
+    <div className='tile' style={{ left: `${x}px`, top:`${y}px` }}>
       {/*Renders the selected logo */}
       {tile.logo && <FontAwesomeIcon icon={tile.logo} className={styles.logo} />}
       <span className={styles.tile_title}>{tile.title}</span>
     </div>
   );
-  {/* Remove Null and add content above for small div content */}
 }
 
 export default Tile;

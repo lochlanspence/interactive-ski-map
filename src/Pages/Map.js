@@ -87,7 +87,6 @@ function Map() {
       id: getUniqueId(),
       x: mouseX,
       y: mouseY,
-      title: `mouseX: ${mouseX}, mouseY: ${mouseY} Hello World`
     };
 
     const newTiles = [...tiles, tile];
@@ -97,6 +96,19 @@ function Map() {
     setShowModal(true);
     setClickedTile(tile);
   }
+
+  const handlePlace = (logo, subHeading, description) => {
+    const newTile = {
+      id: getUniqueId(),
+      x: clickedTile.x,
+      y: clickedTile.y,
+      title: `${subHeading} ${description}`,
+      logo: logo
+    };
+
+    const newTiles = [...tiles, newTile];
+      setTiles(newTiles);
+  };
 
   return (
     <div className="Map">
@@ -113,7 +125,7 @@ function Map() {
         </div>
       </div>
       {/* Render the modal conditionally with the clickedTile */}
-      {showModal && clickedTile && <Modal tile={clickedTile} onClose={closeModal} />}
+      {showModal && clickedTile && <Modal tile={clickedTile} onClose={closeModal} onPlace={handlePlace}/>}
     </div>
   );
 }

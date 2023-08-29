@@ -10,7 +10,7 @@ import {
   faUserSlash
 } from "@fortawesome/free-solid-svg-icons";
 
-function Modal({ onClose, tile }) {
+function Modal({ onClose, tile, onPlace }) {
   const [newLogo, setNewLogo] = useState(''); // State for the new logo
   const [newSubHeading, setNewSubHeading] = useState(''); // State for the new sub-heading name
   const [newDescription, setNewDescription] = useState(''); // State for the new description
@@ -27,6 +27,11 @@ function Modal({ onClose, tile }) {
     if (event.target === event.currentTarget) {
       onClose(); // Call the onClose function to close the modal window
     }
+  }
+
+  const handlePlaceClick = () => {
+    onPlace(newLogo, newSubHeading, newDescription); // Call the onPlace function to place the new tile
+    onClose(); // Call the onClose function to close the modal window
   }
 
   return (
@@ -91,7 +96,7 @@ function Modal({ onClose, tile }) {
           <p className={styles.delete_button} onClick={handleDeleteClick}>
             Delete
           </p>
-          <p className={styles.place_button}>Place</p>
+          <p className={styles.place_button} onClick={handlePlaceClick}>Place</p>
         </div>
       </div>
     </div>

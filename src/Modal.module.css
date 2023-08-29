@@ -110,13 +110,14 @@ textarea {
 }
   
 .logo_icon:hover {
-    border-color: transparent;
+    transform: scale(1.1);
 }
 
 .selected_logo {
     box-sizing: border-box;
     width: 100px;
     height: 100px;
+    transform: scale(1.1);
 }
   
 .logo_grid:not(.selected_logo) .logo_icon {

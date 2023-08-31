@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../Map.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Tile({ tile, x, y }) {
-  // Adjust the positioning based on the tile's x and y values
+  const [hovered, setHovered] = useState(false);
+
   const tileStyle = {
     left: `${x}px`,
     top: `${y}px`,
@@ -11,10 +12,23 @@ function Tile({ tile, x, y }) {
   };
 
   return (
-    <div className='tile' style={tileStyle}>
-      {/* Renders the selected logo */}
-      {tile.logo && <FontAwesomeIcon icon={tile.logo} className={styles.logo} />}
-      <span className={styles.tile_title}>{tile.title}</span>
+    <div
+      className='tile'
+      style={tileStyle}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {tile.logo && (
+        <div className={styles.logoContainer}>
+          <FontAwesomeIcon icon={tile.logo} className={styles.logo} />
+          {hovered && (
+            <div className={styles.hoverContent}>
+              <h3>{tile.title}</h3>
+              <p>{tile.description}</p>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

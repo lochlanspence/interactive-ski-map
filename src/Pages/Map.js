@@ -102,7 +102,8 @@ function Map() {
       id: getUniqueId(),
       x: clickedTile.x,
       y: clickedTile.y,
-      title: `${subHeading} ${description}`,
+      title: `${subHeading}`,
+      description: `${description}`,
       logo: logo
     };
 

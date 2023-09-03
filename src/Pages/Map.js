@@ -11,7 +11,7 @@ function Map() {
   // Dimensions of the map image used for calculating the scale for positioning tiles
   const MapImage = {
     width: 2048,
-    height: 1259
+    height: 1259,
   };
 
   // reference to the HTML element that contains the map image
@@ -104,11 +104,23 @@ function Map() {
       y: clickedTile.y,
       title: `${subHeading}`,
       description: `${description}`,
-      logo: logo
+      logo: logo,
     };
 
     const newTiles = [...tiles, newTile];
-      setTiles(newTiles);
+    setTiles(newTiles);
+  };
+
+  const updateTile = (updatedTile) => {
+    const tileIndex = tiles.findIndex((t) => t.id === updatedTile.id);
+
+    if (tileIndex !== -1) {
+      const updatedTiles = [...tiles];
+      updatedTiles[tileIndex] = updatedTile;
+      setTiles(updatedTiles);
+    }
+
+    setShowModal(false);
   };
 
   return (
@@ -116,17 +128,25 @@ function Map() {
       <Navbar logo={primary_logo_black} />
       <div ref={mapRef}>
         <div className={styles.map_container} onClick={handleMapClick}>
-          {tiles.map(t => {
-            // calculate the x/y values based on the current scale of the map image
+          {tiles.map((t) => {
             const x = Math.round(t.x / scaleX.current);
             const y = Math.round(t.y / scaleY.current);
-            return <Tile key={t.id} tile={t} x={x} y={y} />;
+            return (
+              <Tile
+                key={t.id}
+                tile={t}
+                x={x}
+                y={y}
+                onUpdateTile={updateTile}
+              />
+            );
           })}
           <img src={TrailMap} alt="Trail Map" width="100%" />
         </div>
       </div>
-      {/* Render the modal conditionally with the clickedTile */}
-      {showModal && clickedTile && <Modal tile={clickedTile} onClose={closeModal} onPlace={handlePlace}/>}
+      {showModal && clickedTile && (
+        <Modal tile={clickedTile} onClose={closeModal} onPlace={handlePlace} />
+      )}
     </div>
   );
 }

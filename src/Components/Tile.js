@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '../Map.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Tile({ tile, x, y, onUpdateTile }) {
+function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
   const [hovered, setHovered] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [editedTitle, setEditedTitle] = useState(tile.title); // State for edited title
@@ -44,9 +44,18 @@ function Tile({ tile, x, y, onUpdateTile }) {
     setShowModal(false);
   };
 
+  const handleDeleteTile = () => {
+    onDeleteTile(tile.id); // Call the onDeleteTile function with the tile's id
+  };
+
   const toggleModalAndResetHover = () => {
     setHovered(false);
     toggleModal();
+  }
+
+  const toggleModalAndDeleteTile = () => {
+    setShowModal(false);
+    handleDeleteTile();
   }
 
   return (
@@ -87,9 +96,14 @@ function Tile({ tile, x, y, onUpdateTile }) {
                 onChange={handleDescriptionChange}
               />
             </div>
+            <div className={styles.button_container}>
             <button onClick={handleConfirmEdit} className={styles.edit_button}>
               Confirm Edit
             </button>
+            <button onClick={toggleModalAndDeleteTile} className={styles.delete_button}>
+              Delete Widget
+            </button>
+            </div>
           </div>
         </div>
       )}

@@ -123,6 +123,11 @@ function Map() {
     setShowModal(false);
   };
 
+  const deleteTile = (tileId) => {
+    const updatedTiles = tiles.filter((tile) => tile.id !== tileId);
+    setTiles(updatedTiles);
+  };
+
   return (
     <div className="Map">
       <Navbar logo={primary_logo_black} />
@@ -138,6 +143,7 @@ function Map() {
                 x={x}
                 y={y}
                 onUpdateTile={updateTile}
+                onDeleteTile={deleteTile}
               />
             );
           })}

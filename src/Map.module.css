@@ -56,9 +56,26 @@ img {
 }
 
 .edit_button {
-    background-color: grey;
+    background-color: #43B12E;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+.edit_button:hover {
+    background-color: #2E8F1F;
 }
 
 .delete_button {
-    background-color: red;
+    background-color: rgba(255, 0, 0);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.delete_button:hover {
+    background-color: #990000;
 }

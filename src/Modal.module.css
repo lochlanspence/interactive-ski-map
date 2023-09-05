@@ -72,28 +72,17 @@ textarea {
     background-color: #43B12E;
 }
 
+.place_button:hover {
+    background-color: #2E8A1E;
+    cursor: grab;
+}
+
 /* Logo Grid */
 .logo_grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     margin-top: 20px;
-}
-
-.logo_grid img {
-    width: 250px;
-    height: 250px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease-in-out;
-}
-
-.logo_grid img:hover {
-    border-color: #43B12E;
-}
-
-.selected_logo {
-    border-color: #43B12E;
 }
 
 .input_container{

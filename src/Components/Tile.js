@@ -57,6 +57,14 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
     onDeleteTile(tile.id);
   }
 
+  // Event handler for the overlay click
+  const handleOverlayClick = (e) => {
+    e.stopPropagation();
+    if (e.target === e.currentTarget) {
+      setShowModal(false);
+    }
+  }
+
   return (
     <div
       className='tile'
@@ -80,7 +88,7 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
       )}
 
       {showModal && (
-        <div className={styles.modal} onClick={(e) => { e.stopPropagation(); }}>
+        <div className={styles.modal} onClick={handleOverlayClick}>
           {/* Render the modal content */}
           <div className={styles.modal_content}>
             <div className={styles.input_container}>

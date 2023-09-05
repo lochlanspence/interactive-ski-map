@@ -42,11 +42,11 @@ function NewTileModal({ onClose, tile, onAddTile }) {
     <div className={styles.modal} onClick={handleOverlayClick}>
       <div className={styles['modal-content']}>
         {/* Use the tile data to display specific information */}
-        <h2>Create Widget </h2>
+        <h2>New Event</h2>
         <div className={styles.content_container}>
           {/* Logo Change */}
           <div className={`${styles['input_container']} ${styles['change_logo']}`}>
-            <label>Change Logo:</label>
+            <label>Select Event:</label>
             <div className={styles.logo_grid}>
               {/* Font Awesome icons */}
               <div>
@@ -113,7 +113,7 @@ function NewTileModal({ onClose, tile, onAddTile }) {
         </div>
         {/* Place buttons */}
         <div className={styles.button_container}>
-          <p className={styles.place_button} onClick={handleAddClick}>Place</p>
+          <p className={styles.place_button} onClick={handleAddClick}>Add</p>
         </div>
       </div>
     </div>

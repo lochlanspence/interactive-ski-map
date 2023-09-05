@@ -172,7 +172,7 @@ function Map() {
     setClickedTile(tile);
   }
 
-  const handlePlace = (logo, subHeading, description) => {
+  const handleAddTile = (logo, subHeading, description) => {
     const newTile = {
       id: getUniqueId(),
       x: clickedTile.x,
@@ -187,13 +187,13 @@ function Map() {
   };
 
   // Function to update a tile
-  const updateTile = (updatedTile) => {
+  const handleUpdateTile = (updatedTile) => {
     set(ref(db, 'tiles/' + updatedTile.id), updatedTile);
     setShowModal(false);
   };
 
   // Function to delete a tile
-  const deleteTile = (tileId) => {
+  const handleDeleteTile = (tileId) => {
     set(ref(db, 'tiles/' + tileId), null);
   };
 
@@ -215,8 +215,8 @@ function Map() {
                 tile={t}
                 x={x}
                 y={y}
-                onUpdateTile={updateTile}
-                onDeleteTile={deleteTile}
+                onUpdateTile={handleUpdateTile}
+                onDeleteTile={handleDeleteTile}
               />
             );
           })}
@@ -226,7 +226,7 @@ function Map() {
       </div>
       {showModal && clickedTile && (
         // Render the modal when the showModal flag is true
-        <Modal tile={clickedTile} onClose={closeModal} onAddTile={handlePlace} />
+        <Modal tile={clickedTile} onClose={closeModal} onAddTile={handleAddTile} />
       )}
     </div>
   );

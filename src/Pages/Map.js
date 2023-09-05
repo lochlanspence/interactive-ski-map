@@ -5,7 +5,7 @@ import styles from '../Map.module.css';
 import primary_logo_black from '../images/Remarkables-BlackOut.png';
 import TrailMap from '../images/Remarkables_Trail_Map.png';
 import Tile from '../Components/Tile.js';
-import Modal from '../Components/Modal.js';
+import Modal from '../Components/NewTileModal.js';
 
 // firebase
 import { initializeApp } from 'firebase/app';
@@ -226,7 +226,7 @@ function Map() {
       </div>
       {showModal && clickedTile && (
         // Render the modal when the showModal flag is true
-        <Modal tile={clickedTile} onClose={closeModal} onPlace={handlePlace} />
+        <Modal tile={clickedTile} onClose={closeModal} onAddTile={handlePlace} />
       )}
     </div>
   );

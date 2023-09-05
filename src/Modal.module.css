@@ -59,15 +59,6 @@ textarea {
     color: white;
 }
 
-.delete_button {
-    background-color: rgb(225, 0, 0);
-}
-
-.delete_button:hover {
-    background-color: #990000;
-    cursor: grab;
-}
-
 .place_button {
     background-color: #43B12E;
 }

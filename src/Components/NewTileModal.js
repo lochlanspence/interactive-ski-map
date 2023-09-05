@@ -12,15 +12,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Modal component
-function Modal({ onClose, tile, onPlace }) {
+function NewTileModal({ onClose, tile, onAddTile }) {
   const [newLogo, setNewLogo] = useState(''); // State for the new logo
   const [newSubHeading, setNewSubHeading] = useState(''); // State for the new sub-heading name
   const [newDescription, setNewDescription] = useState(''); // State for the new description
-
-  // Event handler for the delete button
-  const handleDeleteClick = () => {
-    onClose(); // Call the onClose function to close the modal window
-  };
 
 
   // Event handler for the logo click
@@ -37,8 +32,8 @@ function Modal({ onClose, tile, onPlace }) {
   }
 
   // Event handler for the place button
-  const handlePlaceClick = () => {
-    onPlace(newLogo, newSubHeading, newDescription); // Call the onPlace function to place the new tile
+  const handleAddClick = () => {
+    onAddTile(newLogo, newSubHeading, newDescription); // Call the onAddTile function to place the new tile
     onClose(); // Call the onClose function to close the modal window
   }
 
@@ -103,16 +98,13 @@ function Modal({ onClose, tile, onPlace }) {
             </div>
           </div>
         </div>
-        {/* Delete and place buttons */}
+        {/* Place buttons */}
         <div className={styles.button_container}>
-          <p className={styles.delete_button} onClick={handleDeleteClick}>
-            Delete
-          </p>
-          <p className={styles.place_button} onClick={handlePlaceClick}>Place</p>
+          <p className={styles.place_button} onClick={handleAddClick}>Place</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Modal;
+export default NewTileModal;

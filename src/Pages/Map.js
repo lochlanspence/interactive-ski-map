@@ -7,6 +7,18 @@ import TrailMap from '../images/Remarkables_Trail_Map.png';
 import Tile from '../Components/Tile.js';
 import Modal from '../Components/Modal.js';
 
+// firebase
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, set, onValue } from "firebase/database";
+
+const firebaseConfig = {
+    databaseURL: "https://interactive-ski-map-default-rtdb.asia-southeast1.firebasedatabase.app/"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
 function Map() {
   // Dimensions of the map image used for calculating the scale for positioning tiles
   const MapImage = {
@@ -17,8 +29,14 @@ function Map() {
   // reference to the HTML element that contains the map image
   const mapRef = useRef(null);
 
+  // reference to the Firebase database
+  const db = getDatabase();
+
   // state management for the list of tiles to overlay on the map image
   const [tiles, setTiles] = useState([]);
+
+   // reference to the 'tiles' collection in the firebase realtime database
+   const tilesRef = ref(db, 'tiles');  
 
   // X/Y values to scale the tile positions based on the map size.
   const scaleX = useRef(1.0);
@@ -45,6 +63,63 @@ function Map() {
   const handleWindowResize = useCallback(() => {
     setScale();
   }, [setScale]);
+
+  useEffect(() => {
+    // process the list of tiles once retrieved from firebase
+    onValue(tilesRef, (snapshot) => {
+        const data = snapshot.val();
+        
+        if (data == null) {
+            setTiles([])
+        }
+        else {
+            /*
+                convert the records from firebase into an array which we can process
+                for rendering, the firebase structure is:
+
+                {
+                    123456: {
+                        id: 123456,
+                        x: 100,
+                        y: 100,
+                        ...
+                    },
+                    123457: {
+                        id: 123457,
+                        x: 100,
+                        y: 100,
+                        ...
+                    },
+                    ...
+                }
+
+                The following code will convert this to an array:
+
+                [
+                    {
+                        id: 123456,
+                        x: 100,
+                        y: 100,
+                        ...
+                    },
+{
+                        id: 123457,
+                        x: 100,
+                        y: 100,
+                        ...
+                    },
+                    ...
+                ]
+            */
+            const array = []
+            Object.keys(data).forEach((key) => {
+                const item = { ...data[key] }
+                array.push(item);
+            });             
+            setTiles(array)
+        }
+    });
+}, [])    
 
   useEffect(() => {
     setScale();
@@ -89,9 +164,6 @@ function Map() {
       y: mouseY,
     };
 
-    const newTiles = [...tiles, tile];
-    setTiles(newTiles);
-
     // Show the modal when a tile is clicked and store the clicked tile data
     setShowModal(true);
     setClickedTile(tile);
@@ -107,25 +179,17 @@ function Map() {
       logo: logo,
     };
 
-    const newTiles = [...tiles, newTile];
-    setTiles(newTiles);
+    // save the new tile to firebase
+    set(ref(db, 'tiles/' + newTile.id), newTile);
   };
 
   const updateTile = (updatedTile) => {
-    const tileIndex = tiles.findIndex((t) => t.id === updatedTile.id);
-
-    if (tileIndex !== -1) {
-      const updatedTiles = [...tiles];
-      updatedTiles[tileIndex] = updatedTile;
-      setTiles(updatedTiles);
-    }
-
+    set(ref(db, 'tiles/' + updatedTile.id), updatedTile);
     setShowModal(false);
   };
 
   const deleteTile = (tileId) => {
-    const updatedTiles = tiles.filter((tile) => tile.id !== tileId);
-    setTiles(updatedTiles);
+    set(ref(db, 'tiles/' + tileId), null);
   };
 
   return (

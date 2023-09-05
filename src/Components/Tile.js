@@ -79,7 +79,7 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
       )}
 
       {showModal && (
-        <div className={styles.modal} onClick={(e) => { e.stopPropagation(); toggleModal(); }}>
+        <div className={styles.modal} onClick={(e) => { e.stopPropagation(); }}>
           <div className={styles.modal_content}>
             <div className={styles.input_container}>
               <label>Sub-heading:</label>

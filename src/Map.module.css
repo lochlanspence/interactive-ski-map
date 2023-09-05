@@ -75,7 +75,9 @@ img {
 .edit_button {
     background-color: #43B12E;
     color: white;
-    padding: 10px;
+    padding: 11px;
+    padding-right: 25px;
+    padding-left: 25px;
     border-radius: 5px;
     border: none;
     margin-right: 10px;
@@ -87,14 +89,14 @@ img {
 
 /*Styling for the delete widget button*/
 .delete_button {
-    border: 1px solid rgba(255, 0, 0);
-    color: rgba(255, 0, 0);
-
+    border: 1px solid grey;
+    color: grey;
     padding: 10px;
     border-radius: 5px;
+    background-color: white;
 }
 
 .delete_button:hover {
-    background-color: rgba(255, 0, 0);
-    color: white;
+    border-color: red;
+    color: red;
 }

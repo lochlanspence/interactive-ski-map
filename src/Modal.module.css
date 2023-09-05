@@ -60,14 +60,15 @@ textarea {
 }
 
 .button_container p {
-    margin-right: 10px;
-    padding: 10px;
     border-radius: 5px;
     color: white;
 }
 
 .place_button {
     background-color: #43B12E;
+    padding: 10px;
+    padding-right: 25px;
+    padding-left: 25px;
 }
 
 .place_button:hover {

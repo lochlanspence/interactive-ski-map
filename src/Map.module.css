@@ -5,7 +5,7 @@
 
 img {
     width: 100%;
-    height: 100vh;
+    /*height: 100vh;*/
 }
 
 .tile {
@@ -20,6 +20,16 @@ img {
 .logoContainer {
     position: relative;
     display: inline-block;
+    background-color: #43B12E;
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
 }
 
 /*Styling for content when widget is hovered*/
@@ -76,13 +86,14 @@ img {
 
 /*Styling for the delete widget button*/
 .delete_button {
-    background-color: rgba(255, 0, 0);
-    color: white;
+    border: 1px solid rgba(255, 0, 0);
+    color: rgba(255, 0, 0);
+
     padding: 10px;
     border-radius: 5px;
-    border: none;
 }
 
 .delete_button:hover {
-    background-color: #990000;
+    background-color: rgba(255, 0, 0);
+    color: white;
 }

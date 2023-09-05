@@ -30,7 +30,7 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
   };
 
   // Event handler for confirming the edit
-  const handleConfirmEdit = () => {
+  const handleSave = () => {
     // Update the tile with the edited values
     const updatedTile = {
       ...tile,
@@ -73,7 +73,7 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
             <div className={styles.hoverContent} onClick={(e) => e.stopPropagation()}>
               <h3>{tile.title}</h3>
               <p>{tile.description}</p>
-              <button onClick={handleEdit}>Edit Widget</button>
+              <button onClick={handleEdit}>Edit</button>
             </div>
           )}
         </div>
@@ -102,11 +102,11 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
             </div>
             {/* Render the buttons */}
             <div className={styles.button_container}>
-            <button onClick={handleConfirmEdit} className={styles.edit_button}>
-              Confirm Edit
+            <button onClick={handleSave} className={styles.edit_button}>
+              Save
             </button>
             <button onClick={handleDeleteTile} className={styles.delete_button}>
-              Delete Widget
+              Delete
             </button>
             </div>
           </div>

@@ -2,18 +2,18 @@
 import React, { useState } from 'react';
 import styles from '../Modal.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
+import {
   faClock,
   faCoffee,
   faStar,
-  faCircleXmark,
-  faExclamation,
-  faUserSlash
+  faTriangleExclamation,
+  faInfo,
+  faPersonFallingBurst
 } from "@fortawesome/free-solid-svg-icons";
 
 // Modal component
 function NewTileModal({ onClose, tile, onAddTile }) {
-  const [newLogo, setNewLogo] = useState(''); // State for the new logo
+  const [newLogo, setNewLogo] = useState(faClock); // State for the new logo
   const [newSubHeading, setNewSubHeading] = useState(''); // State for the new sub-heading name
   const [newDescription, setNewDescription] = useState(''); // State for the new description
 
@@ -49,41 +49,54 @@ function NewTileModal({ onClose, tile, onAddTile }) {
             <label>Change Logo:</label>
             <div className={styles.logo_grid}>
               {/* Font Awesome icons */}
-              <FontAwesomeIcon
-                icon={faClock}
-                onClick={() => handleLogoClick(faClock)}
-                className={newLogo === faClock ? styles.selected_logo : styles.logo_icon}
-              />
-
-              <FontAwesomeIcon
-                icon={faCoffee}
-                onClick={() => handleLogoClick(faCoffee)}
-                className={newLogo === faCoffee ? styles.selected_logo : styles.logo_icon}
-              />
-
-              <FontAwesomeIcon
-                icon={faStar}
-                onClick={() => handleLogoClick(faStar)}
-                className={newLogo === faStar ? styles.selected_logo : styles.logo_icon}
-              />
-
-              <FontAwesomeIcon
-                icon={faCircleXmark}
-                onClick={() => handleLogoClick(faCircleXmark)}
-                className={newLogo === faCircleXmark ? styles.selected_logo : styles.logo_icon}
-              />
-
-              <FontAwesomeIcon
-                icon={faExclamation}
-                onClick={() => handleLogoClick(faExclamation)}
-                className={newLogo === faExclamation ? styles.selected_logo : styles.logo_icon}
-              />
-
-              <FontAwesomeIcon
-                icon={faUserSlash}
-                onClick={() => handleLogoClick(faUserSlash)}
-                className={newLogo === faUserSlash ? styles.selected_logo : styles.logo_icon}
-              />
+              <div>
+                <FontAwesomeIcon
+                  icon={faClock}
+                  onClick={() => handleLogoClick(faClock)}
+                  className={newLogo === faClock ? styles.selected_logo : styles.logo_icon}
+                />
+                  <p>Queue Time</p>
+              </div>
+              <div>
+                <FontAwesomeIcon
+                  icon={faCoffee}
+                  onClick={() => handleLogoClick(faCoffee)}
+                  className={newLogo === faCoffee ? styles.selected_logo : styles.logo_icon}
+                />
+                  <p>Coffee Wait Time</p>
+              </div>
+              <div>
+                <FontAwesomeIcon
+                  icon={faStar}
+                  onClick={() => handleLogoClick(faStar)}
+                  className={newLogo === faStar ? styles.selected_logo : styles.logo_icon}
+                />
+                  <p>Special Event</p>
+              </div>
+              <div>
+                <FontAwesomeIcon
+                  icon={faTriangleExclamation}
+                  onClick={() => handleLogoClick(faTriangleExclamation)}
+                  className={newLogo === faTriangleExclamation ? styles.selected_logo : styles.logo_icon}
+                />
+                <p>Hazard</p>
+              </div>
+              <div>
+                <FontAwesomeIcon
+                  icon={faInfo}
+                  onClick={() => handleLogoClick(faInfo)}
+                  className={newLogo === faInfo ? styles.selected_logo : styles.logo_icon}
+                />
+                <p>Info</p>
+              </div>
+              <div>
+                <FontAwesomeIcon  
+                  icon={faPersonFallingBurst}
+                  onClick={() => handleLogoClick(faPersonFallingBurst)}
+                  className={newLogo === faPersonFallingBurst ? styles.selected_logo : styles.logo_icon}
+                />
+                <p>Accident</p>
+              </div>
             </div>
           </div>
           <div>

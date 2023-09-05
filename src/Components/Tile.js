@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import styles from '../Map.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { set } from 'firebase/database';
 
 // Tile component
 function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
@@ -16,11 +17,6 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
     left: `${x}px`,
     top: `${y}px`,
     position: 'absolute',
-  };
-
-  // Event handler for the modal toggle
-  const toggleModal = () => {
-    setShowModal(!showModal);
   };
 
   // Event handler for input value changes
@@ -49,21 +45,16 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
     setShowModal(false);
   };
 
-  // Event handler for the delete button
-  const handleDeleteTile = () => {
-    onDeleteTile(tile.id); // Call the onDeleteTile function with the tile's id
-  };
-
   // Event handler for the modal toggle
-  const toggleModalAndResetHover = () => {
+  const handleEdit = () => {
     setHovered(false);
-    toggleModal();
+    setShowModal(true);
   }
 
   // Event handler for the modal toggle and delete tile
-  const toggleModalAndDeleteTile = () => {
+  const handleDeleteTile = () => {
     setShowModal(false);
-    handleDeleteTile();
+    onDeleteTile(tile.id);
   }
 
   return (
@@ -82,7 +73,7 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
             <div className={styles.hoverContent} onClick={(e) => e.stopPropagation()}>
               <h3>{tile.title}</h3>
               <p>{tile.description}</p>
-              <button onClick={toggleModalAndResetHover}>Edit Widget</button>
+              <button onClick={handleEdit}>Edit Widget</button>
             </div>
           )}
         </div>
@@ -114,7 +105,7 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
             <button onClick={handleConfirmEdit} className={styles.edit_button}>
               Confirm Edit
             </button>
-            <button onClick={toggleModalAndDeleteTile} className={styles.delete_button}>
+            <button onClick={handleDeleteTile} className={styles.delete_button}>
               Delete Widget
             </button>
             </div>

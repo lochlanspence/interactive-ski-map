@@ -1,19 +1,24 @@
+// Description: This file contains the Tile component which is used to render a tile on the map.
 import React, { useState } from 'react';
 import styles from '../Map.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+// Tile component
 function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
   const [hovered, setHovered] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [editedTitle, setEditedTitle] = useState(tile.title); // State for edited title
   const [editedDescription, setEditedDescription] = useState(tile.description); // State for edited description
 
+
+  // Style for the tile
   const tileStyle = {
     left: `${x}px`,
     top: `${y}px`,
     position: 'absolute',
   };
 
+  // Event handler for the modal toggle
   const toggleModal = () => {
     setShowModal(!showModal);
   };
@@ -44,15 +49,18 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
     setShowModal(false);
   };
 
+  // Event handler for the delete button
   const handleDeleteTile = () => {
     onDeleteTile(tile.id); // Call the onDeleteTile function with the tile's id
   };
 
+  // Event handler for the modal toggle
   const toggleModalAndResetHover = () => {
     setHovered(false);
     toggleModal();
   }
 
+  // Event handler for the modal toggle and delete tile
   const toggleModalAndDeleteTile = () => {
     setShowModal(false);
     handleDeleteTile();
@@ -65,9 +73,11 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
+      {/* Render the tile content */}
       {tile.logo && (
         <div className={styles.logoContainer}>
           <FontAwesomeIcon icon={tile.logo} className={styles.logo} />
+          {/* Render the hover content */}
           {hovered && (
             <div className={styles.hoverContent} onClick={(e) => e.stopPropagation()}>
               <h3>{tile.title}</h3>
@@ -80,9 +90,11 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
 
       {showModal && (
         <div className={styles.modal} onClick={(e) => { e.stopPropagation(); }}>
+          {/* Render the modal content */}
           <div className={styles.modal_content}>
             <div className={styles.input_container}>
               <label>Sub-heading:</label>
+              {/* Render the input field */}
               <input
                 type="text"
                 value={editedTitle}
@@ -91,11 +103,13 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
             </div>
             <div className={styles.input_container}>
               <label>Description:</label>
+              {/* Render the textarea field */}
               <textarea
                 value={editedDescription}
                 onChange={handleDescriptionChange}
               />
             </div>
+            {/* Render the buttons */}
             <div className={styles.button_container}>
             <button onClick={handleConfirmEdit} className={styles.edit_button}>
               Confirm Edit

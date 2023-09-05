@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo&family=Yantramanav&display=swap');
 
+/*Styling applies for the whole home page*/
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +12,7 @@
   text-transform: uppercase;
 }
 
+/*Heading styles*/
 h2 {
   font-size: 85px;
   text-transform: uppercase;
@@ -31,7 +33,7 @@ h4 {
   margin-bottom: 0.8em;
 }
 
-
+/*Top section of the page styles*/
 .header {
   background-image: url(./images/Landing-Image.jpg);
   background-repeat: no-repeat;
@@ -54,6 +56,7 @@ h4 {
   animation: fadeIn 2.5s;
 }
 
+/*Fade in animation for landing text*/
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -75,6 +78,7 @@ h4 {
   margin-top: 105px;
 }
 
+/*Mountain features grid styles*/
 .mountain_features {
   width: auto;
   text-align: center;
@@ -114,6 +118,7 @@ h4 {
   text-decoration: none;
 }
 
+/*Mountain features grid styles*/
 .features_grid {
   display: flex;
   justify-content: space-between;
@@ -151,6 +156,7 @@ h4 {
   margin-left: 15px;
 }
 
+/*Footer styles*/
 .footer {
   height: 60px;
   width: 100%;

@@ -1,3 +1,4 @@
+/*Styles for div with map inside*/
 .map_container {
     position: relative;
 }
@@ -20,6 +21,8 @@ img {
     position: relative;
     display: inline-block;
 }
+
+/*Styling for content when widget is hovered*/
 .hoverContent {
     position: absolute;
     top: 100%;
@@ -36,6 +39,7 @@ img {
     display: block;
 }
 
+/*Styling for edit widget modal window*/
 .modal {
     position: fixed;
     top: 0;
@@ -48,6 +52,7 @@ img {
     justify-content: center;
 }
 
+/*Styling for div surrounding the inner modal content*/
 .modal_content {
     background-color: #fff;
     padding: 20px;
@@ -55,6 +60,7 @@ img {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+/*Styling for the confirm edit button*/
 .edit_button {
     background-color: #43B12E;
     color: white;
@@ -68,6 +74,7 @@ img {
     background-color: #2E8F1F;
 }
 
+/*Styling for the delete widget button*/
 .delete_button {
     background-color: rgba(255, 0, 0);
     color: white;

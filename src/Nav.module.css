@@ -1,3 +1,4 @@
+/*Styling for nav list*/
 nav ul {
     align-items: center;
     list-style: none;
@@ -5,6 +6,7 @@ nav ul {
     padding: 0;
   }
   
+  /*Styling for navbar display*/
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -19,6 +21,7 @@ nav ul {
     max-width: 194px;
   }
   
+  /*Styling for items in the navbar*/
   .nav_item {
     color: white;
     text-decoration: none;
@@ -35,6 +38,7 @@ nav ul {
     color: black;
   }
   
+  /*White underline hover effect for navbar items*/
   .nav_item:hover {
     transition: 0.5s;
   }
@@ -61,6 +65,7 @@ nav ul {
     transform: scaleX(1);
   }
   
+  /*Styling for view map button*/
   .primary_button {
     color: white;
     text-decoration: none;
@@ -74,6 +79,7 @@ nav ul {
     transition: 0.5s;
   }
   
+  /*Styling for logo*/
   .primary_logo_white {
     width: 100%;
     height: auto;

@@ -1,3 +1,4 @@
+// Description: This file contains the Modal component which is used to display a modal window to the user.
 import React, { useState } from 'react';
 import styles from '../Modal.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,30 +11,38 @@ import {
   faUserSlash
 } from "@fortawesome/free-solid-svg-icons";
 
+// Modal component
 function Modal({ onClose, tile, onPlace }) {
   const [newLogo, setNewLogo] = useState(''); // State for the new logo
   const [newSubHeading, setNewSubHeading] = useState(''); // State for the new sub-heading name
   const [newDescription, setNewDescription] = useState(''); // State for the new description
 
+  // Event handler for the delete button
   const handleDeleteClick = () => {
     onClose(); // Call the onClose function to close the modal window
   };
 
+
+  // Event handler for the logo click
   const handleLogoClick = (logo) => {
     setNewLogo(logo); // Update the newLogo state with the selected logo
   };
 
+
+  // Event handler for the overlay click
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
       onClose(); // Call the onClose function to close the modal window
     }
   }
 
+  // Event handler for the place button
   const handlePlaceClick = () => {
     onPlace(newLogo, newSubHeading, newDescription); // Call the onPlace function to place the new tile
     onClose(); // Call the onClose function to close the modal window
   }
 
+  // Return the JSX element
   return (
     <div className={styles.modal} onClick={handleOverlayClick}>
       <div className={styles['modal-content']}>
@@ -44,6 +53,7 @@ function Modal({ onClose, tile, onPlace }) {
           <div className={`${styles['input_container']} ${styles['change_logo']}`}>
             <label>Change Logo:</label>
             <div className={styles.logo_grid}>
+              {/* Font Awesome icons */}
               <FontAwesomeIcon
                 icon={faClock}
                 onClick={() => handleLogoClick(faClock)}
@@ -82,6 +92,7 @@ function Modal({ onClose, tile, onPlace }) {
             </div>
           </div>
           <div>
+            {/* Sub-heading and description */}
             <div className={styles.input_container}>
               <label>Sub-heading:</label>
               <input type="text" value={newSubHeading} onChange={(event) => setNewSubHeading(event.target.value)} />
@@ -92,6 +103,7 @@ function Modal({ onClose, tile, onPlace }) {
             </div>
           </div>
         </div>
+        {/* Delete and place buttons */}
         <div className={styles.button_container}>
           <p className={styles.delete_button} onClick={handleDeleteClick}>
             Delete

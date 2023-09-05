@@ -121,6 +121,7 @@ function Map() {
     });
 }, [])    
 
+  // Set the scale values when the component mounts
   useEffect(() => {
     setScale();
     window.addEventListener('resize', handleWindowResize);
@@ -133,6 +134,7 @@ function Map() {
     };
   }, [setScale, handleWindowResize, handleWindowFocusChange]);
 
+  // Function to generate a unique id for each tile
   const getUniqueId = () => {
     return parseInt(Date.now());
   };
@@ -151,6 +153,7 @@ function Map() {
       return;
     }
 
+    // Get the map container's bounding rectangle
     const map = mapRef.current;
     const rect = map.getBoundingClientRect();
 
@@ -183,24 +186,30 @@ function Map() {
     set(ref(db, 'tiles/' + newTile.id), newTile);
   };
 
+  // Function to update a tile
   const updateTile = (updatedTile) => {
     set(ref(db, 'tiles/' + updatedTile.id), updatedTile);
     setShowModal(false);
   };
 
+  // Function to delete a tile
   const deleteTile = (tileId) => {
     set(ref(db, 'tiles/' + tileId), null);
   };
 
   return (
     <div className="Map">
+      {/*Navbar header*/}
       <Navbar logo={primary_logo_black} />
       <div ref={mapRef}>
+        {/*Map image*/}
         <div className={styles.map_container} onClick={handleMapClick}>
           {tiles.map((t) => {
+            {/* Scale position: (first scale, then adjust) */}
             const x = Math.round(t.x / scaleX.current);
             const y = Math.round(t.y / scaleY.current);
             return (
+              // Render a tile for each item in the tiles array
               <Tile
                 key={t.id}
                 tile={t}
@@ -211,10 +220,12 @@ function Map() {
               />
             );
           })}
+          {/* Render the trail map image */}
           <img src={TrailMap} alt="Trail Map" width="100%" />
         </div>
       </div>
       {showModal && clickedTile && (
+        // Render the modal when the showModal flag is true
         <Modal tile={clickedTile} onClose={closeModal} onPlace={handlePlace} />
       )}
     </div>

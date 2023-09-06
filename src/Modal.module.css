@@ -67,8 +67,8 @@ textarea {
 .place_button {
     background-color: #43B12E;
     padding: 10px;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .place_button:hover {

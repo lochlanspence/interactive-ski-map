@@ -37,12 +37,14 @@ img {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: white;
     padding: 10px;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 20;
-    display: none;
+    border-radius: 5px;
+    width: 200px;
+    text-align: left;
 }
   
 .logoContainer:hover .hoverContent {
@@ -74,17 +76,18 @@ img {
 /*Styling for the confirm edit button*/
 .edit_button {
     background-color: #43B12E;
+    border: 1px solid #43B12E;
     color: white;
-    padding: 11px;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
     border-radius: 5px;
-    border: none;
     margin-right: 10px;
 }
 
 .edit_button:hover {
     background-color: #2E8F1F;
+    border-color: #2E8F1F;
 }
 
 /*Styling for the delete widget button*/
@@ -99,4 +102,19 @@ img {
 .delete_button:hover {
     border-color: red;
     color: red;
+}
+
+.hoverContent h3 {
+    font-weight: bold;
+}
+
+.hoverContent p {
+    font-size: 14px;
+}
+
+.hoverEditButton {
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    margin-top: 10px;
 }

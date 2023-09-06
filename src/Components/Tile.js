@@ -81,7 +81,7 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
             <div className={styles.hoverContent} onClick={(e) => e.stopPropagation()}>
               <h3>{tile.title}</h3>
               <p>{tile.description}</p>
-              <button onClick={handleEdit}>Edit</button>
+              <button className={styles.hoverEditButton} onClick={handleEdit}>Edit</button>
             </div>
           )}
         </div>

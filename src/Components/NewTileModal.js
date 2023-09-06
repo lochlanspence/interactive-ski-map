@@ -33,6 +33,10 @@ function NewTileModal({ onClose, tile, onAddTile }) {
 
   // Event handler for the place button
   const handleAddClick = () => {
+    if (newSubHeading === '') {
+      alert('Please enter a title');
+      return;
+    }
     onAddTile(newLogo, newSubHeading, newDescription); // Call the onAddTile function to place the new tile
     onClose(); // Call the onClose function to close the modal window
   }
@@ -102,7 +106,7 @@ function NewTileModal({ onClose, tile, onAddTile }) {
           <div>
             {/* Sub-heading and description */}
             <div className={styles.input_container}>
-              <label>Sub-heading:</label>
+              <label>Title:</label>
               <input type="text" value={newSubHeading} onChange={(event) => setNewSubHeading(event.target.value)} />
             </div>
             <div className={styles.input_container}>

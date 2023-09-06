@@ -31,6 +31,10 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
 
   // Event handler for confirming the edit
   const handleSave = () => {
+    if (editedTitle === '' ){
+      alert('Please enter a title');
+      return;
+    }
     // Update the tile with the edited values
     const updatedTile = {
       ...tile,
@@ -92,7 +96,7 @@ function Tile({ tile, x, y, onUpdateTile, onDeleteTile }) {
           {/* Render the modal content */}
           <div className={styles.modal_content}>
             <div className={styles.input_container}>
-              <label>Sub-heading:</label>
+              <label>Title:</label>
               {/* Render the input field */}
               <input
                 type="text"

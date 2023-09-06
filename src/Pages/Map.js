@@ -45,6 +45,10 @@ function Map() {
   // Flag to indicate if the window is currently focused or not
   const [isWindowFocused, setWindowFocused] = useState(true);
 
+  // state variable used to trigger a state change, and hence a re-render when the
+  // windows size changes
+  const [, setWindowSize] = useState(0);
+
   // Function to handle window focus change
   const handleWindowFocusChange = useCallback(() => {
     setWindowFocused(document.hasFocus());
@@ -62,6 +66,7 @@ function Map() {
   // Function to handle window resize
   const handleWindowResize = useCallback(() => {
     setScale();
+    setWindowSize(window.innerWidth);
   }, [setScale]);
 
   useEffect(() => {
@@ -118,6 +123,10 @@ function Map() {
             });             
             setTiles(array)
         }
+        // If the map page is loaded directly (e.g. browser refresh or navigated to directly via url) then sometimes
+        // the scale has not been initialised correctly and the tiles are rendered at the incorrect locations on
+        // the map. Calling setScale() resolves this issue.
+        setScale();
     });
 }, [])    
 

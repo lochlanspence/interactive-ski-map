@@ -113,12 +113,13 @@ function NewTileModal({ onClose, tile, onAddTile }) {
               <label>Description:</label>
               <textarea value={newDescription} onChange={(event) => setNewDescription(event.target.value)} />
             </div>
+            <div className={styles.button_container}>
+             <button className={styles.place_button} onClick={handleAddClick}>Add</button>
+            </div>
           </div>
         </div>
         {/* Place buttons */}
-        <div className={styles.button_container}>
-          <p className={styles.place_button} onClick={handleAddClick}>Add</p>
-        </div>
+        
       </div>
     </div>
   );

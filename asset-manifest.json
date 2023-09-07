@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/interactive-ski-map/static/css/main.edb92d48.css",
-    "main.js": "/interactive-ski-map/static/js/main.70ed93b5.js",
+    "main.css": "/interactive-ski-map/static/css/main.4304a043.css",
+    "main.js": "/interactive-ski-map/static/js/main.5b966e59.js",
     "static/media/Stash.jpg": "/interactive-ski-map/static/media/Stash.77ae1faef939395b0f53.jpg",
     "static/media/ice-bar-wide-shot.jpeg": "/interactive-ski-map/static/media/ice-bar-wide-shot.3c1ede1bce5731cceb72.jpeg",
     "static/media/Remarkables_Trail_Map.png": "/interactive-ski-map/static/media/Remarkables_Trail_Map.e11b3e8e3defa8ef3c55.png",
@@ -12,11 +12,11 @@
     "static/media/NZSki_RM_Logo_01_Primary_White.png": "/interactive-ski-map/static/media/NZSki_RM_Logo_01_Primary_White.2a94a44db7f56387c259.png",
     "static/media/Remarkables-BlackOut.png": "/interactive-ski-map/static/media/Remarkables-BlackOut.a53702369c30fed3530d.png",
     "index.html": "/interactive-ski-map/index.html",
-    "main.edb92d48.css.map": "/interactive-ski-map/static/css/main.edb92d48.css.map",
-    "main.70ed93b5.js.map": "/interactive-ski-map/static/js/main.70ed93b5.js.map"
+    "main.4304a043.css.map": "/interactive-ski-map/static/css/main.4304a043.css.map",
+    "main.5b966e59.js.map": "/interactive-ski-map/static/js/main.5b966e59.js.map"
   },
   "entrypoints": [
-    "static/css/main.edb92d48.css",
-    "static/js/main.70ed93b5.js"
+    "static/css/main.4304a043.css",
+    "static/js/main.5b966e59.js"
   ]
 }
